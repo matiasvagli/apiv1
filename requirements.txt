@@ -1,0 +1,20 @@
+# Framework web moderno y rápido para construir APIs con Python
+fastapi
+
+# Servidor ASGI de alto rendimiento para ejecutar aplicaciones FastAPI
+uvicorn
+
+# Driver asíncrono de MongoDB para Python (reemplaza a pymongo en apps async)
+motor
+
+# Librería para análisis y manipulación de datos (procesamiento de CVs)
+pandas
+
+# Librería para manejo de tokens JWT (autenticación y autorización)
+python-jose[cryptography]
+
+# Librería para hash de contraseñas de forma segura
+passlib[bcrypt]
+
+# Carga variables de entorno desde archivo .env
+python-dotenv

@@ -14,6 +14,7 @@ from app.services.user_service import (
     list_users
 )
 from app.core.mongo import db
+from app.api.v1.endpoints.cvs import router as cvs_router
 
 router = APIRouter()
 
@@ -56,3 +57,5 @@ async def get_users():
     Devuelve un error 404 si no hay usuarios.
     """
     return await list_users()
+
+router.include_router(cvs_router)

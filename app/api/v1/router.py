@@ -2,7 +2,7 @@
 # (No standard library imports needed)
 
 # Third-party imports
-from fastapi import APIRouter, HTTPException, Body
+from fastapi import APIRouter, HTTPException, Body, Depends
 
 # Local application imports
 from app.schemas.user import UserCreate
@@ -13,8 +13,10 @@ from app.services.user_service import (
     delete_user,
     list_users
 )
+from app.services.utils_service import get_current_user
 from app.core.mongo import db
 from app.api.v1.endpoints.cvs import router as cvs_router
+from app.api.v1.endpoints.auth import router as auth_router
 
 router = APIRouter()
 
@@ -34,18 +36,15 @@ async def get_user(email: str):
     user.pop("_id", None)
     return user
 
-@router.post("/usuarios/login")
-async def login_user(email: str=Body(...), password: str=Body(...)):
-    is_valid = await verify_user(email, password)
-    if not is_valid:
-        raise HTTPException(status_code=401, detail="Credenciales inválidas")
-    return {"message": "Login exitoso"}
+
 
 @router.delete("/usuarios/{email}")
-async def delete_user(email: str):
+async def delete_user_endpoint(email: str, usuario_actual: str = Depends(get_current_user)):
     """
-    Endpoint para eliminar un usuario por su email.
+    Endpoint protegido para eliminar un usuario por su email.
+    Requiere autenticación JWT válida en el header Authorization.
     Devuelve un error 404 si el usuario no existe.
+    El parámetro usuario_actual contiene el email extraído del token.
     """
     result = await delete_user(email)
     return result
@@ -58,4 +57,5 @@ async def get_users():
     """
     return await list_users()
 
+router.include_router(auth_router)
 router.include_router(cvs_router)

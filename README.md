@@ -1,3 +1,5 @@
+# En estapa final  de construccion
+
 # API Usuarios FastAPI + MongoDB
 
 Esta API es un ejemplo profesional y didáctico para la gestión de usuarios y procesamiento de archivos CSV, ideal para casos de estudio, proyectos de aprendizaje o como base para sistemas más complejos.
@@ -25,4 +27,4 @@ Esta API es un ejemplo profesional y didáctico para la gestión de usuarios y p
 
 ---
 
-> Esta API es ideal como ejemplo de buenas prácticas en FastAPI, MongoDB y autenticación moderna. ¡Usala como base para tus propios proyectos o para practicar entrevistas técnicas!
+> Esta API es ideal como ejemplo de buenas prácticas en FastAPI, MongoDB y autenticación moderna. ¡Usala como base para tus propios proyectos o para practicas técnicas!

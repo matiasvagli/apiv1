@@ -36,9 +36,34 @@ def get_current_user(request: Request):
     token = auth_header.split(" ")[1]
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        return payload["sub"]  # Devuelve el email del usuario autenticado
+        return payload # Devuelve el payload completo, puedes acceder a payload["sub"] para el email
     except JWTError:
         raise HTTPException(
             status_code=401,
             detail="Token inválido o expirado"
         )
+    
+#Definimios los permisos de acceso
+def Admin_access(payload: dict = Depends(get_current_user)):
+    """
+    Verifica si el usuario tiene permisos de administrador.
+    Si no es admin, lanza una excepción HTTP 403 (Forbidden).
+    """
+    if payload.get("role") != "admin":
+        raise HTTPException(
+            status_code=403,
+            detail="Acceso denegado. Se requieren permisos de administrador."
+        )
+    return payload
+
+def User_access(payload: dict = Depends(get_current_user)):
+    """
+    Verifica si el usuario tiene permisos de usuario.
+    Si no es usuario, lanza una excepción HTTP 403 (Forbidden).
+    """
+    if payload.get("role") not in ["user", "admin"]:  # Permite tanto usuarios normales como administradores
+        raise HTTPException(
+            status_code=403,
+            detail="Acceso denegado. Se requieren permisos de usuario."
+        )
+    return payload

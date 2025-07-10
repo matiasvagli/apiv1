@@ -1,5 +1,7 @@
 # Standard library imports
-# (No standard library imports needed)
+# estan son las rutas de la API v1
+# (No standard library imports needed)  
+
 
 # Third-party imports
 from fastapi import APIRouter, HTTPException, Body, Depends
@@ -23,8 +25,8 @@ router = APIRouter()
 # Endpoint para crear un usuario
 @router.post("/usuarios", status_code=201)
 async def add_user(user: UserCreate):
-    user_id = await create_user(user.nombre, user.email, user.password)
-    return {"id": user_id, "nombre": user.nombre, "email": user.email}
+    user_id = await create_user(user.nombre, user.email, role=user.role, password=user.password)
+    return {"id": user_id, "nombre": user.nombre, "email": user.email, "role": user.role}
 
 @router.get("/usuarios/{email}")
 async def get_user(email: str):
@@ -41,6 +43,9 @@ async def get_user(email: str):
 @router.delete("/usuarios/{email}")
 async def delete_user_endpoint(email: str, usuario_actual: str = Depends(get_current_user)):
     """
+    En fastApi aunque no se use el parámetro usuario_actual, es una buena práctica incluirlo
+    para que el endpoint esté protegido y se pueda validar el token JWT.
+    
     Endpoint protegido para eliminar un usuario por su email.
     Requiere autenticación JWT válida en el header Authorization.
     Devuelve un error 404 si el usuario no existe.

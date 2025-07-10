@@ -20,7 +20,7 @@ async def get_user_by_email(email: str):
 
 
 # Función asíncrona para crear un usuario en la base de datos
-async def create_user(nombre: str, email: str, password: str):
+async def create_user(nombre: str, email: str, password: str , role: str = "user"):
     # Espera el resultado de la búsqueda de usuario por email
     if await get_user_by_email(email):
         # Si el usuario ya existe, lanza una excepción HTTP 400 (Bad Request)

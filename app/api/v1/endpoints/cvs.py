@@ -1,12 +1,13 @@
 
-from fastapi import APIRouter, HTTPException, UploadFile,File
+from fastapi import APIRouter, HTTPException, UploadFile,File, Depends
 import pandas as pd
 import io
+from app.services.utils_service import User_access
 
 router = APIRouter()
 
 @router.post("/cvs/upload")
-async def upload_cvs(file: UploadFile = File(...)):
+async def upload_cvs(file: UploadFile = File(...), usuario_actual: dict = Depends(User_access)):
     """
     Endpoint para subir un archivo CSV.
     El archivo debe ser un CSV con columnas 'nombre', 'email' y 'telefono'.

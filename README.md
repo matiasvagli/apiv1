@@ -45,7 +45,7 @@ Puedes usar este usuario para loguearte y probar los endpoints protegidos por ro
 
 > Esta API es ideal como ejemplo de buenas prácticas en FastAPI, MongoDB y autenticación moderna. ¡Usala como base para tus propios proyectos o para practicar!
 
-# Si tenes alguna duda no dudes den contactarme valgimatias@gmail.com
+# Si tenes alguna duda no dudes en contactarme valgimatias@gmail.com
 
 
 

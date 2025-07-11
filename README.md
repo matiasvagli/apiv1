@@ -1,6 +1,6 @@
 
 
-# API Usuarios FastAPI + MongoDB
+# API Usuarios FastAPI + MongoDB 
 
 Esta API es un ejemplo profesional y didáctico para la gestión de usuarios y procesamiento de archivos CSV, ideal para casos de estudio, proyectos de aprendizaje o como base para sistemas más complejos.
 
@@ -43,7 +43,11 @@ Puedes usar este usuario para loguearte y probar los endpoints protegidos por ro
 
 ---
 
+> Esta API es ideal como ejemplo de buenas prácticas en FastAPI, MongoDB y autenticación moderna. ¡Usala como base para tus propios proyectos o para practicar!
 
-=======
-> Esta API es ideal como ejemplo de buenas prácticas en FastAPI, MongoDB y autenticación moderna. ¡Usala como base para tus propios proyectos o para practicas técnicas!
+# Si tenes alguna duda no dudes den contactarme valgimatias@gmail.com
+
+
+
+
 

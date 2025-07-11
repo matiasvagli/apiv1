@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# En etapa final de construccion
-=======
-# En estapa final  de construccion
->>>>>>> 3b4c50b7bd7dd3b7a37c20639351e7185d7a3ca6
+
 
 # API Usuarios FastAPI + MongoDB
 
@@ -47,8 +43,7 @@ Puedes usar este usuario para loguearte y probar los endpoints protegidos por ro
 
 ---
 
-<<<<<<< HEAD
-> Esta API es ideal como ejemplo de buenas prácticas en FastAPI, MongoDB y autenticación moderna. ¡Usala como base para tus propios proyectos o para practicar!
+
 =======
 > Esta API es ideal como ejemplo de buenas prácticas en FastAPI, MongoDB y autenticación moderna. ¡Usala como base para tus propios proyectos o para practicas técnicas!
->>>>>>> 3b4c50b7bd7dd3b7a37c20639351e7185d7a3ca6
+
